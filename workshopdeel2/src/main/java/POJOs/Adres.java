@@ -33,7 +33,7 @@ public class Adres {
 	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="klant_has_adres", 
-		joinColumns={@JoinColumn(name="adre_adres_id")}, 
+		joinColumns={@JoinColumn(name="adres_adres_id")}, 
 		inverseJoinColumns={@JoinColumn(name="adres_type_id")})
 	private Set<AdresType> adresTypes;
     
