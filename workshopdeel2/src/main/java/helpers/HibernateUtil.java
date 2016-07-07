@@ -26,13 +26,15 @@ public class HibernateUtil {
 	}
 	
 	public void closeCurrentSession() {
-		currentSession.close();
-		StandardServiceRegistryBuilder.destroy( registry );
+		currentSession.close();		
 	}
 	
 	public void closeCurrentSessionWithTransaction() {
 		currentTransaction.commit();
-		currentSession.close();
+		currentSession.close();		
+	}
+	
+	public static void DestroyRegistery() {
 		StandardServiceRegistryBuilder.destroy( registry );
 	}
 	
