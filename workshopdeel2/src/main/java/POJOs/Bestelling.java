@@ -1,6 +1,7 @@
 package POJOs;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,16 +55,24 @@ public class Bestelling {
 		return bestelNummer;
 	}
 
-	public void setBestelNummer(String bestelNummer) {
-		this.bestelNummer = bestelNummer;
+	public void setBestelNummer() {
+		int length = 10;
+		Random random = new Random();
+		String characters = "ABCDEFGHIJLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < length; i++) {
+			sb.append(characters.charAt(random.nextInt(characters.length())));
+		}
+		bestelNummer = sb.toString();
 	}
 
 	public Date getBestel_datum() {
 		return bestel_datum;
 	}
 
-	public void setBestel_datum(Date bestel_datum) {
-		this.bestel_datum = bestel_datum;
+	public void setBestel_datum() {
+		this.bestel_datum = new java.util.Date();
 	}
 
 	public Klant getKlant() {

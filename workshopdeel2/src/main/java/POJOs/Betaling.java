@@ -49,8 +49,8 @@ public class Betaling {
 		return betaal_datum;
 	}
 
-	public void setBetaal_datum(Date betaal_datum) {
-		this.betaal_datum = betaal_datum;
+	public void setBetaal_datum() {
+		this.betaal_datum = new java.util.Date();
 	}
 
 	public Betaalwijze getBetaalwijze() {

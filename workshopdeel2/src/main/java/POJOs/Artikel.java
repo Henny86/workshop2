@@ -1,5 +1,7 @@
 package POJOs;
 
+import java.util.Random;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -68,8 +70,16 @@ public class Artikel {
 		return artikelNummer;
 	}
 
-	public void setArtikelNummer(String artikelNummer) {
-		this.artikelNummer = artikelNummer;
+	public void setArtikelNummer() {
+		int length = 10;
+		Random random = new Random();
+		String characters = "ABCDEFGHIJLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < length; i++) {
+			sb.append(characters.charAt(random.nextInt(characters.length())));
+		}
+		artikelNummer = sb.toString();
 	}
 
 	public Bestelling getBestelling() {

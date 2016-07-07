@@ -1,6 +1,7 @@
 package POJOs;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -48,8 +49,22 @@ public class Factuur {
 	public Date getFactuur_datum() {
 		return factuur_datum;
 	}
-	public void setFactuur_datum(Date factuur_datum) {
-		this.factuur_datum = factuur_datum;
+	public void setFactuur_datum() {
+		this.factuur_datum = new java.util.Date();
+	}
+	public String getFactuurNummer() {
+		return factuurNummer;
+	}
+	public void setFactuurNummer() {
+		int length = 10;
+		Random random = new Random();
+		String characters = "ABCDEFGHIJLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < length; i++) {
+			sb.append(characters.charAt(random.nextInt(characters.length())));
+		}
+		factuurNummer = sb.toString();
 	}
 	public Klant getKlant() {
 		return klant;

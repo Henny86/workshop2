@@ -49,8 +49,8 @@ public class Account {
 	public Date getCreate_datum() {
 		return create_datum;
 	}
-	public void setCreate_datum(Date create_datum) {
-		this.create_datum = create_datum;
+	public void setCreate_datum() {
+		this.create_datum = new java.util.Date();
 	} 
 	@Override
 	public String toString() {
