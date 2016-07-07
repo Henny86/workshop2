@@ -60,9 +60,9 @@ public class testApp {
 		//klantService.create(klant2);
 		//dao.create(klant2);
 		//accountService.create(account2);
-		klantService.create(klant3);
+		//klantService.create(klant3);
 		//dao.create(klant3);
-		accountService.create(account3);
+		//accountService.create(account3);
 		/*List<Klant> klanten = klantService.findAll();
 		//List<Klant> klanten = dao.findAll();
 		System.out.println("toegevoegd zijn: ");
@@ -112,8 +112,7 @@ public class testApp {
 			System.out.println("-" + a.toString());
 		}
 		
-		HibernateUtil.DestroyRegistery();
-		KlantDao.DestroyRegistery();
+		HibernateUtil.DestroyRegistery();	
 		System.out.println("--------Tests klaar------------");
 	}	
 }

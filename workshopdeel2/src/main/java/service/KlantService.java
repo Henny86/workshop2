@@ -12,36 +12,25 @@ public class KlantService {
 		klantDao = new KlantDao();
 	}
 	
-	public void create(Klant klant) {
-		klantDao.openCurrentSessionWithTransaction();
-		klantDao.create(klant);
-		klantDao.closeCurrentSessionWithTransaction();
+	public void create(Klant klant) {		
+		klantDao.create(klant);		
 	}
 	
-	public void update(Klant klant) {
-		klantDao.openCurrentSessionWithTransaction();
-		klantDao.update(klant);
-		klantDao.closeCurrentSessionWithTransaction();
+	public void update(Klant klant) {		
+		klantDao.update(klant);		
 	}
 	
-	public Klant findByID(int klantID) {
-		klantDao.openCurrentSession();
-		Klant klant = klantDao.findByID(klantID);
-		klantDao.closeCurrentSession();
+	public Klant findByID(int klantID) {		
+		Klant klant = klantDao.findByID(klantID);		
 		return klant;
 	}
 	
-	public void delete(Klant klant) {
-		klantDao.openCurrentSessionWithTransaction();
-		klantDao.delete(klant);
-		klantDao.closeCurrentSessionWithTransaction();
+	public void delete(Klant klant) {		
+		klantDao.delete(klant);		
 	}
 	
-	public List<Klant> findAll() {
-		System.out.println("methode in service findAll");
-		klantDao.openCurrentSession();
-		List<Klant> klanten = klantDao.findAll();
-		klantDao.closeCurrentSession();
+	public List<Klant> findAll() {		
+		List<Klant> klanten = klantDao.findAll();		
 		return klanten;
 	}
 }
