@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 	private Session currentSession;
+        private static SessionFactory sessionFactory;
 	private Transaction currentTransaction;
 	private static StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 	
@@ -39,7 +40,9 @@ public class HibernateUtil {
 	}
 	
 	private static SessionFactory getSessionFactory() {		
-		SessionFactory sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+		if (sessionFactory == null) {
+                    sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+                }
 		return sessionFactory;
 	}
 

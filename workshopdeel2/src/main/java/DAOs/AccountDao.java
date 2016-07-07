@@ -38,6 +38,6 @@ public class AccountDao {
 		util.openCurrentSession();
 		List<Account> accounten = (List<Account>)util.getCurrentSession().createQuery("from " + Account.class.getSimpleName()).list();
 		util.closeCurrentSession();
-		return accounten;
+                return accounten;
 	}
 }
