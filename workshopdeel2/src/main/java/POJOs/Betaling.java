@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,8 +32,8 @@ public class Betaling {
 	@JoinColumn(name="klant_id", insertable=false, updatable=false)
 	private Klant klant;
 	
-	@ManyToOne
-    @JoinColumn(name="factuur_id", insertable=false, updatable=false)
+	@OneToOne
+    @JoinColumn(name="factuur_id")
 	private Factuur factuur;
 	
 	private String betalingsGegevens;	
