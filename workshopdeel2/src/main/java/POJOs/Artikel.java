@@ -28,10 +28,6 @@ public class Artikel {
 	@Column
     private String artikelNaam, artikelBeschrijving, artikelNummer;
     
-    @ManyToOne
-    @JoinColumn(name="bestelling_id", nullable=false)
-    Bestelling bestelling;
-    
     public Artikel() {}
 
 	public Integer getArtikelID() {
@@ -81,15 +77,7 @@ public class Artikel {
 		}
 		artikelNummer = sb.toString();
 	}
-
-	public Bestelling getBestelling() {
-		return bestelling;
-	}
-
-	public void setBestelling(Bestelling bestelling) {
-		this.bestelling = bestelling;
-	}
-
+	
 	@Override
     public int hashCode() {
         return new HashCodeBuilder(11, 29).append(artikelID).toHashCode();
