@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "bestelling_has_artikel")
+@Component
 public class BestelArtikel {
 
 	@Id

@@ -14,10 +14,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 
 @Entity
 @Table(name = "klant")
+@Component
 public class Klant {
 	
 	@Id

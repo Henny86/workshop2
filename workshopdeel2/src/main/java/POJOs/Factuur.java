@@ -14,9 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table
+@Component
 public class Factuur {
 	
 	@Id

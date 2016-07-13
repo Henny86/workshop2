@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table
+@Component
 public class AdresType {
 	
 	@Id

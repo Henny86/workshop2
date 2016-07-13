@@ -17,9 +17,11 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import POJOs.BestelArtikel;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table
+@Component
 public class Bestelling {
 
 	@Id
