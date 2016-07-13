@@ -4,16 +4,26 @@ import java.util.List;
 
 import DAOs.AccountDao;
 import POJOs.Account;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class AccountService {
-	private static AccountDao accountDao;	
+    
+	private  AccountDao accountDao;	
 	
-	public AccountService() {
-		accountDao = new AccountDao();		
+        public AccountService() {
+				
+	}
+        
+        @Autowired
+	public AccountService(AccountDao accountDao) {
+		this.accountDao = accountDao;		
 	}
 	
 	public void create(Account account) {		
-		accountDao.create(account);		
+		accountDao.save(account);		
 	}
 	
 	public void update(Account account) {

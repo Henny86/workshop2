@@ -22,7 +22,7 @@ public class Klant {
 	
 	@Id
 	@GeneratedValue
-	private int klant_id;
+	private long klant_id;
 	
 	@Column
     private String voornaam, achternaam, tussenvoegsel, email;
@@ -43,11 +43,11 @@ public class Klant {
 		inverseJoinColumns={@JoinColumn(name="adres_type_id")})
 	Map<Adres, AdresType> adressen;
 
-    public int getKlantID() {
+    public long getKlantID() {
         return klant_id;
     }
 
-    public void setKlantID(int klantID) {
+    public void setKlantID(long klantID) {
         this.klant_id = klantID;
     }
 

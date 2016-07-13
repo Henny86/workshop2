@@ -4,23 +4,34 @@ import java.util.List;
 
 import DAOs.KlantDao;
 import POJOs.Klant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class KlantService {
-	private static KlantDao klantDao;
+        
+	private KlantDao klantDao;
 	
-	public KlantService() {
-		klantDao = new KlantDao();
+        
+        public KlantService( ) {
+		
+	}
+	
+        @Autowired
+        public KlantService( KlantDao klantDao) {
+		this.klantDao =  klantDao;
 	}
 	
 	public void create(Klant klant) {		
-		klantDao.create(klant);		
+		klantDao.save(klant);		
 	}
 	
 	public void update(Klant klant) {		
 		klantDao.update(klant);		
 	}
 	
-	public Klant findByID(int klantID) {		
+	public Klant findByID(long klantID) {		
 		Klant klant = klantDao.findByID(klantID);		
 		return klant;
 	}
