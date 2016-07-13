@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class AdresType {
+public class AdresType implements Serializable {
 	
 	@Id
 	@GeneratedValue

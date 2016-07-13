@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class Betaling {
+public class Betaling implements Serializable {
 	
 	@Id
 	@GeneratedValue

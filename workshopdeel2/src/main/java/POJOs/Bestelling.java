@@ -17,12 +17,13 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import POJOs.BestelArtikel;
+import java.io.Serializable;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Table
 @Component
-public class Bestelling {
+public class Bestelling implements Serializable {
 
 	@Id
 	@GeneratedValue

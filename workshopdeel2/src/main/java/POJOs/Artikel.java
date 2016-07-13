@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Random;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class Artikel {
+public class Artikel implements Serializable {
  
 	@Id
 	@GeneratedValue

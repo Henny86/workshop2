@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "klant")
 @Component
-public class Klant {
+public class Klant implements Serializable {
 	
 	@Id
 	@GeneratedValue

@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -21,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class Adres {
+public class Adres implements Serializable {
 	
 	@Id
 	@GeneratedValue

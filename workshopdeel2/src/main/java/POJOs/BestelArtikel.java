@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "bestelling_has_artikel")
 @Component
-public class BestelArtikel {
+public class BestelArtikel implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

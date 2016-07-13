@@ -1,5 +1,6 @@
 package POJOs;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Random;
 import java.util.Set;
@@ -19,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class Factuur {
+public class Factuur implements Serializable {
 	
 	@Id
 	@GeneratedValue
