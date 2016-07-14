@@ -1,18 +1,33 @@
-import java.util.Date;
+import DAOs.AdresDao;
 import java.util.List;
 
-import DAOs.KlantDao;
 import POJOs.Account;
+import POJOs.Adres;
+import POJOs.Bestelling;
 import POJOs.Klant;
-import helpers.HibernateUtil;
+
+import helpers.Workshopdeel2Config;
+import java.util.HashSet;
+import java.util.Set;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.AccountService;
 import service.KlantService;
 
+
+
 public class testApp {
+  
 	public static void main(String[] args) {
-		KlantService klantService = new KlantService();
-		AccountService accountService = new AccountService();
+            
+            ApplicationContext context = new AnnotationConfigApplicationContext(Workshopdeel2Config.class);
+          //  AutowireCapableBeanFactory beanFactory = context.getAutowireCapableBeanFactory();
+            
+           
+		KlantService klantService = context.getBean(KlantService.class);
+		AccountService accountService = context.getBean(AccountService.class);//new AccountService();
 		//KlantDao dao = new KlantDao();
+                AdresDao adresDao = new AdresDao();
 				
 		Klant klant1 = new Klant();
 		klant1.setAchternaam("tester");
@@ -31,32 +46,43 @@ public class testApp {
 		klant3.setTussenvoegsel("eens");
 		klant3.setVoornaam("testnog");
 		klant3.setEmail("nogeens@extra.com");
-		
-		Account account1 = new Account();
-		klant1.setKlantID(1);
+		klant3 = klantService.findByID(5);
+		Account account1 = context.getBean(Account.class); //(Account) klant3.getAccountSet().toArray()[0];//context.getBean(Account.class); //(Account) klant3.getAccountSet().toArray()[0];//new Account(); ////new Account();
+		klant1.setKlantID(5);
 		account1.setKlant(klant1);
-		account1.setNaam(klant1.getAchternaam());
-		Date crieerDatum = new Date();
-		account1.setCreate_datum(crieerDatum);
+	//	account1.setNaam(klant1.getAchternaam());
+              //  account1.setAccount_id(8);
 		
+		Bestelling bestelling1 = new Bestelling();
+               Set<Account> accountSet = new HashSet();
+               accountSet.add(account1);
+               klant1.setAccountSet(accountSet);
 		Account account2 = new Account();
 		klant2.setKlantID(2);
 		account2.setKlant(klant2);
 		account2.setNaam(klant2.getAchternaam());
-		Date crieerDatum2 = new Date();
-		account2.setCreate_datum(crieerDatum2);
+		
+		
 		
 		Account account3 = new Account();
-		klant3.setKlantID(3);
-		account3.setKlant(klant3);
-		account3.setNaam(klant3.getAchternaam());
-		Date crieerDatum3 = new Date();
-		account3.setCreate_datum(crieerDatum3);
+		//klant3.setKlantID(3);
+		//account3.setKlant(klant3);
+		//account3.setNaam(klant3.getAchternaam());
+                
+                
+                Adres adres1 = new Adres();
+                adres1.setPostcode("2345AB");
+                adres1.setHuisnummer(3);
+                adres1.setStraatnaam("straatje");
+                adres1.setWoonplaats("grote stad");
 		
-		//System.out.println("--------toevogen gestart------");
-		//klantService.create(klant1);
+		
+		System.out.println("--------toevogen gestart------");
+	//	klantService.create(klant1);
 		//dao.create(klant1);
-		//accountService.create(account1);
+          //       adresDao.save(adres1);
+		//accountService.findByID(2);//create(account1);
+             accountService.update(account1);
 		//klantService.create(klant2);
 		//dao.create(klant2);
 		//accountService.create(account2);
@@ -111,8 +137,9 @@ public class testApp {
 		for (Account a : accounten) {
 			System.out.println("-" + a.toString());
 		}
-		
-		HibernateUtil.DestroyRegistery();	
+
+	//	HibernateUtil.DestroyRegistery();	
+	//	JPAUtil.DestroyRegistery();	
 		System.out.println("--------Tests klaar------------");
 	}	
 }
