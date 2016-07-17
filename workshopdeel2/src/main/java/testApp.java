@@ -6,7 +6,7 @@ import POJOs.Adres;
 import POJOs.Bestelling;
 import POJOs.Klant;
 
-import helpers.Workshopdeel2Config;
+import config.Workshopdeel2Config;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +19,7 @@ import service.KlantService;
 public class testApp {
   
 	public static void main(String[] args) {
-            
+            /*
             ApplicationContext context = new AnnotationConfigApplicationContext(Workshopdeel2Config.class);
           //  AutowireCapableBeanFactory beanFactory = context.getAutowireCapableBeanFactory();
             
@@ -123,7 +123,7 @@ public class testApp {
 		accountService.delete(account3);		
 		System.out.println("klant verwijdert met id: " + verwijderen);
 		System.out.println("nu zijn er " + klantService.findAll().size() + "klanten");
-		*/
+		
 		System.out.println("---------zoek alle gestart-----");
 		List<Klant> klanten2 = klantService.findAll();
 		//List<Klant> klanten2 = dao.findAll();
@@ -137,9 +137,10 @@ public class testApp {
 		for (Account a : accounten) {
 			System.out.println("-" + a.toString());
 		}
-
+*/
 	//	HibernateUtil.DestroyRegistery();	
 	//	JPAUtil.DestroyRegistery();	
-		System.out.println("--------Tests klaar------------");
+	//	System.out.println("--------Tests klaar------------");
+                
 	}	
 }
