@@ -24,7 +24,7 @@ import service.KlantService;
 @RequestMapping("/klanten")
 public class KlantController {
      private KlantService klantService;
-     private static final String MAX_LONG_AS_STRING = "9223372036854775807";
+   
 
   @Autowired
   public KlantController(KlantService klantService) {
@@ -32,9 +32,7 @@ public class KlantController {
   }
 
   @RequestMapping(method=RequestMethod.GET)
-  public List<Klant> klanten(
-      @RequestParam(value="max", defaultValue=MAX_LONG_AS_STRING) long max,
-      @RequestParam(value="count", defaultValue="20") int count) {
+  public List<Klant> klanten( ) {
     return klantService.findAll();
   }
 
@@ -45,12 +43,5 @@ public class KlantController {
     model.addAttribute(klantService.findByID(klantId));
     return "klanten";
   }
-/*
-  @RequestMapping(method=RequestMethod.POST)
-  public String saveSpittle(SpittleForm form, Model model) throws Exception {
-    spittleRepository.save(new Spittle(null, form.getMessage(), new Date(), 
-        form.getLongitude(), form.getLatitude()));
-    return "redirect:/spittles";
-  }
-*/
+
 }
