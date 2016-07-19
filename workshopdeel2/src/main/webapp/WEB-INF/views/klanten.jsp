@@ -15,11 +15,11 @@
         <c:forEach items="${klantList}" var="klant" >
           <li id="klant_<c:out value="klant.klant_id"/>">
             <div class="klantVoornaam"><c:out value="${klant.voornaam}" /></div>
-           
+            <div class="klantAchternaam"><c:out value="${klant.achternaam}" /></div>
           </li>
         </c:forEach>
       </ul>
-      <c:if test="${fn:length(klantList) gt 5}">
+      <c:if test="${fn:length(klantList) gt 20}">
         <hr />
         <s:url value="/klanten?count=${nextCount}" var="more_url" />
         <a href="${more_url}">Show more</a>

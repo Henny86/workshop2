@@ -1,5 +1,6 @@
 package POJOs;
 
+
 import java.io.Serializable;
 import java.util.Random;
 
@@ -7,9 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -20,16 +20,22 @@ import org.springframework.stereotype.Component;
 @Table
 @Component
 public class Artikel implements Serializable {
- 
+
 	@Id
 	@GeneratedValue
     private Integer artikelID = 0;
  
-	@Column
+    @Column
+    @NotNull
     private Double artikelPrijs = 0.0;
   
-	@Column
-    private String artikelNaam, artikelBeschrijving, artikelNummer;
+    @Column
+    @NotNull
+    private String artikelNaam;
+    @Column
+    private String artikelBeschrijving;
+    @Column
+    private String artikelNummer;
     
     public Artikel() {}
 

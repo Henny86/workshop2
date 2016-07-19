@@ -10,7 +10,7 @@
   <body>
     <h1>Welcome to Workshop</h1>
 
-    <a href="<c:url value="/spittles" />">Koop hier</a> | 
+    <a href="<c:url value="/catalogus" />">Koop hier</a> | 
     <a href="<c:url value="/klanten" />">Registreer</a>
   </body>
 </html>
