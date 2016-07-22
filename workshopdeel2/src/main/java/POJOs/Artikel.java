@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -20,17 +21,18 @@ import org.springframework.stereotype.Component;
 @Table
 @Component
 public class Artikel implements Serializable {
-
 	@Id
 	@GeneratedValue
     private Integer artikelID = 0;
  
     @Column
-    @NotNull
-    private Double artikelPrijs = 0.0;
+    @NotNull(message = "{artikelPrijs.notNull}")
+    
+    private Double artikelPrijs ;
   
     @Column
     @NotNull
+    @Size(min=4, max=25, message = "{artikelNaam.size}")
     private String artikelNaam;
     @Column
     private String artikelBeschrijving;

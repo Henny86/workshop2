@@ -1,24 +1,11 @@
-import DAOs.AdresDao;
-import java.util.List;
-
-import POJOs.Account;
-import POJOs.Adres;
-import POJOs.Bestelling;
-import POJOs.Klant;
-
-import config.Workshopdeel2Config;
-import java.util.HashSet;
-import java.util.Set;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import service.AccountService;
-import service.KlantService;
+import web.Padvinder;
 
 
 
 public class testApp {
   
 	public static void main(String[] args) {
+            System.out.println("pad:  " +  Padvinder.getPath());
             /*
             ApplicationContext context = new AnnotationConfigApplicationContext(Workshopdeel2Config.class);
           //  AutowireCapableBeanFactory beanFactory = context.getAutowireCapableBeanFactory();

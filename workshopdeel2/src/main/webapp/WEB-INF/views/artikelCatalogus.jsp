@@ -1,20 +1,37 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <%@ page session="false" %>
 <html>
   <head>
-    <title>Artikel</title>
+    <title>formulier</title>
     <link rel="stylesheet" type="text/css" 
           href="<c:url value="/resources/style.css" />" >
   </head>
   <body>
-    <h1>Registreer Artikel</h1>
+    <h1>neem artikel op in de catalogus</h1>
 
-    <form method="POST">
-      Artikel Naam: <input type="text" name="artikelNaam" /><br/>
-      Beschrijf Artikel: <input type="text" name="artikelBeschrijving" /><br/>
-      Prijs in Euro: <input type="text" name="artikelPrijs" /><br/>
+    <sf:form method="POST" commandName="artikel"  enctype="multipart/form-data">
+      <sf:errors path="*" element="div" cssClass="errors" />
+      <sf:label path="artikelNaam" 
+          cssErrorClass="error">naam artikel</sf:label>: 
+        <sf:input path="artikelNaam" cssErrorClass="error" /><br/>
+      <sf:label path="artikelBeschrijving" 
+          cssErrorClass="error">beschrijving</sf:label>: 
+        <sf:input path="artikelBeschrijving" cssErrorClass="error" /><br/>
+      <sf:label path="artikelPrijs" 
+          cssErrorClass="error">prijs artikel</sf:label>: 
+        <sf:input path="artikelPrijs" cssErrorClass="error" /><br/>
+     
+      <input type="submit" value="Registreer" />
       
-      <input type="submit" value="Registeer" />
-    </form>
+      <label>Profile Picture</label>:
+          <input type="file"
+                 name="profilePicture"
+                 accept="image/jpeg,image/png,image/gif" /><br/>
+      
+    </sf:form>
+          
+          
+          
   </body>
-</html>
+</htm

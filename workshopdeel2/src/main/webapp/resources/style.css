@@ -38,3 +38,7 @@ h1 {
     max-width: 250px;
     display: inline;
 }
+
+div.errors {
+    color: red;
+}
