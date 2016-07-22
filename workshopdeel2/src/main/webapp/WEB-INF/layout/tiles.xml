@@ -24,9 +24,17 @@
   <definition name="klanten" extends="base">
     <put-attribute name="body" value="/WEB-INF/views/klanten.jsp" />
   </definition>
+  
+  <definition name="klant" extends="base">
+    <put-attribute name="body" value="/WEB-INF/views/klant.jsp" />
+  </definition>
 
-  <definition name="Adres" extends="base">
-    <put-attribute name="body" value="/WEB-INF/views/Adres.jsp" />
+  <definition name="adres" extends="base">
+    <put-attribute name="body" value="/WEB-INF/views/adres.jsp" />
+  </definition>
+  
+  <definition name="adressen" extends="base">
+    <put-attribute name="body" value="/WEB-INF/views/adressen.jsp" />
   </definition>
 
 </tiles-definitions>

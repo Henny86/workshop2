@@ -7,10 +7,10 @@
     <title>Klanten</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/style.css" />" >
   </head>
-  <body>
-  
+  <body>  
     <div class="listTitle">
       <h1>Alle Klanten</h1>
+      <a href="<c:url value="klanten/register" />">voeg een klant toe</a><br/>
       <ul class="klantList">
         <c:forEach items="${klantList}" var="klant" >
           <li id="klant_<c:out value="klant.klant_id"/>">
@@ -24,6 +24,6 @@
         <s:url value="/klanten?count=${nextCount}" var="more_url" />
         <a href="${more_url}">Show more</a>
       </c:if>
-    </div>
+    </div> 
   </body>
 </html>
