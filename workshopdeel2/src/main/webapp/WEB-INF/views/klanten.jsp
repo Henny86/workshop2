@@ -14,8 +14,10 @@
       <ul class="klantList">
         <c:forEach items="${klantList}" var="klant" >
           <li id="klant_<c:out value="klant.klant_id"/>">
-            <div class="klantVoornaam"><c:out value="${klant.voornaam}" /></div>
-            <div class="klantAchternaam"><c:out value="${klant.achternaam}" /></div>
+              <div>
+                  <p class="klantVoornaam"><c:out value="${klant.voornaam}" />                  
+                  <p class="klantAchternaam"><c:out value="${klant.achternaam}"/>                  
+              </div>            
           </li>
         </c:forEach>
       </ul>
