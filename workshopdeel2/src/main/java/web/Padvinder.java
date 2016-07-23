@@ -17,8 +17,8 @@ public class Padvinder {
     
     public static String getPath(){
         
-        
-         if (filePath == null) filePath = new File("").getAbsolutePath();
+        final File f = new File(Padvinder.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+         if (filePath == null) filePath = f.getPath();
          return filePath;
     }
     

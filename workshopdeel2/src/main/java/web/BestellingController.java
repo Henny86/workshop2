@@ -34,7 +34,7 @@ public class BestellingController {
 		model.addAttribute("listArtikel", this.bestellingService.findById(ID).getBestelArtikelSet());
 		return "bestelartikel";
 	}
-	
+        
 	//For add and update person both
 	@RequestMapping(value= "/bestelling/add", method = RequestMethod.POST)
 	public String addArtikel(@ModelAttribute("bestelartikel") BestelArtikel p, long ID){

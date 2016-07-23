@@ -32,6 +32,9 @@ public class ArtikelService {
 	public void delete(Artikel artikel) {
 		artikelDao.delete(artikel);
 	}
+        public void delete(Long artikelID) {
+		artikelDao.delete(artikelID);
+	}
 
 	public Artikel findById(long id) {
 		Artikel artikelen = artikelDao.findByID(id);

@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 public class Artikel implements Serializable {
 	@Id
 	@GeneratedValue
-    private Integer artikelID = 0;
+    private Long artikelID;
  
     @Column
     @NotNull(message = "{artikelPrijs.notNull}")
@@ -41,11 +41,11 @@ public class Artikel implements Serializable {
     
     public Artikel() {}
 
-	public Integer getArtikelID() {
+	public Long getArtikelID() {
 		return artikelID;
 	}
 
-	public void setArtikelID(Integer artikelID) {
+	public void setArtikelID(Long artikelID) {
 		this.artikelID = artikelID;
 	}
 

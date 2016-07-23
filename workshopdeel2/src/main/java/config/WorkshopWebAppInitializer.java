@@ -33,10 +33,10 @@ public class WorkshopWebAppInitializer extends AbstractAnnotationConfigDispatche
     
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        String filePath = Padvinder.getPath();
+    //    String filePath = Padvinder.getPath();
         registration.setMultipartConfig(   
                  new MultipartConfigElement("/home/jeroen/NetBeansProjects/workshop2/workshopdeel2/src/main/webapp", 2097152, 4194304, 0));
-          //  new MultipartConfigElement(filePath  + "/src/main/webapp/resources/images/artikel" , 2097152, 4194304, 0));
+          //  new MultipartConfigElement(filePath  + "/src/main/webapp" , 2097152, 4194304, 0));
           // /home/jeroen/NetBeansProjects/workshop2/workshopdeel2/src/main/webapp/resources/images/artikel
   }
 }

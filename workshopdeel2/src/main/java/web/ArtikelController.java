@@ -43,14 +43,6 @@ public List<Artikel> artikelen()  {
     return artikelService.findAll();
   }
 
-@RequestMapping(value="/{artikelArtikelID}", method=RequestMethod.GET)
-  public String artikel(
-      @PathVariable("artikelArtikelID") long artikelId, 
-      Model model) {
-    model.addAttribute(artikelService.findById(artikelId));
-    return "artikelen";
-  }
-
 @RequestMapping(value="/register", method=GET)
   public String showRegistrationForm(Model model) {
     model.addAttribute(new Artikel());  
@@ -77,6 +69,12 @@ public List<Artikel> artikelen()  {
   }
  
  
+   @RequestMapping(value= "/remover/{artikelArtikelID}", method=RequestMethod.POST)
+    public String removeArtikel( @PathVariable("artikelArtikelID") long artikelID)  {
+        System.out.println(" artikel wege" + artikelID );
+        artikelService.delete(artikelID);
+        return "redirect:/catalogus";
+    }
   
   
   

@@ -54,5 +54,7 @@ public abstract class GenericDao<T> {
     public void delete(T entity) {
 	em.remove(entity);
     }
-    
+    public void delete(Long id) {
+        em.remove(this.findByID(id));
+    }
 }
