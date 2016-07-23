@@ -14,9 +14,12 @@
 		Achternaam: <input type="text" name="achternaam" /><br/>
 		Tussenvoegsel: <input type="text" name="tussenvoegsel" /><br/>
 		Email: <input type="text" name="email" /><br/>
-		
+		Straatnaam: <input type="text" name="straatnaam" /><br/>
+		Huisnummer: <input type="text" name="huisnummer" /><br/>
+		Toevoeging: <input type="text" name="toevoeging" /><br/>
+		Postcode: <input type="text" name="postcode" /><br/>
+		Woonplaats: <input type="text" name="woonplaats" /><br/>
 		<input type="submit" value="Registreer" />
 	</form>            
-        <a href="<c:url value="/adres/register" />">voeg een adres toe</a>
   </body>
 </html>

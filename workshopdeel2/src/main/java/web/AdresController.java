@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import org.springframework.validation.Errors;
 
 @Controller
-@RequestMapping("/adres")
+@RequestMapping("/Adres")
 public class AdresController {
 	
 	private AdresService adresService;
@@ -26,7 +26,7 @@ public class AdresController {
 	public AdresController(AdresService adresService) {
 		this.adresService = adresService;
 	}
-	
+	/* Wordt nu door KlantController gedaan
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String showRegistrationForm() {
 		return "adres";
@@ -41,8 +41,8 @@ public class AdresController {
             return "redirect:/adressen/list"; //+ adres.getStraatnaam()
         }
 
-	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
+	*/
+	@RequestMapping(method=RequestMethod.GET)
 	public List<Adres> adressen() {
 		return adresService.findAll();
 	}
