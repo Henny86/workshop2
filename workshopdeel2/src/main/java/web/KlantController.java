@@ -6,7 +6,6 @@
 package web;
 
 import POJOs.Klant;
-import POJOs.Adres;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import service.AdresService;
 import service.KlantService;
 
 /**
@@ -28,13 +26,11 @@ import service.KlantService;
 @RequestMapping("/klanten")
 public class KlantController {
      private KlantService klantService;
-     private AdresService adresService;
    
 
   @Autowired
-  public KlantController(KlantService klantService, AdresService adresService) {
+  public KlantController(KlantService klantService) {
     this.klantService = klantService;
-    this.adresService = adresService;
   }
   
   @RequestMapping(value="/register", method=RequestMethod.GET)
@@ -43,12 +39,11 @@ public class KlantController {
 	}
 	
   @RequestMapping(value="/register", method=RequestMethod.POST)
-  public String processRegistration(@Valid Klant klant, @Valid Adres adres, Errors errors) {    
+  public String processRegistration(@Valid Klant klant, Errors errors) {    
             if (errors.hasErrors()) {
             return "klant";
             }
-            klantService.create(klant);
-            adresService.create(adres);    
+            klantService.create(klant);            
             return "redirect:/klanten/"; //+ klant.getVoornaam()
         }
   

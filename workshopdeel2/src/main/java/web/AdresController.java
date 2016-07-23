@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import org.springframework.validation.Errors;
 
 @Controller
-@RequestMapping("/Adres")
+@RequestMapping("/adres")
 public class AdresController {
 	
 	private AdresService adresService;
@@ -26,27 +26,27 @@ public class AdresController {
 	public AdresController(AdresService adresService) {
 		this.adresService = adresService;
 	}
-	/* Gaat momenteel via KlantController
+	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String showRegistrationForm() {
-		return "klant";
+		return "adres";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String processRegistration(@Valid Adres adres, Errors errors) {    
             if (errors.hasErrors()) {
-            return "klant";
+            return "adres";
             }
             adresService.create(adres);
-            return "redirect:/klant"; //+ adres.getStraatnaam()
+            return "redirect:/adressen/list"; //+ adres.getStraatnaam()
         }
 
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public List<Adres> adressen() {
 		return adresService.findAll();
 	}
-        */
+        
         @RequestMapping(value="/{adresAdresID}", method=RequestMethod.GET)
         public String adres(
         @PathVariable("adresAdresID") long adresId, Model model) {
