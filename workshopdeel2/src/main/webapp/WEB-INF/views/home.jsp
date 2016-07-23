@@ -9,7 +9,7 @@
           href="<c:url value="/resources/style.css" />" >
   </head>
   <body>
-    <h1>Welcome to Workshop</h1>
+    <h1>uit eigen oven</h1>
 
     <a id="HomeImage" href="<s:url value="/" />"><img 
     src="<s:url value="/resources" />/images/oven.jpg" width="375" height="269"/></a>

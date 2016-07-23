@@ -36,5 +36,9 @@
   <definition name="adressen" extends="base">
     <put-attribute name="body" value="/WEB-INF/views/adressen.jsp" />
   </definition>
+  
+  <definition name="klantscherm" extends="base">
+    <put-attribute name="body" value="/WEB-INF/views/klantscherm.jsp" />
+  </definition>
 
 </tiles-definitions>

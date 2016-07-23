@@ -16,7 +16,9 @@
           <li id="klant_<c:out value="klant.klant_id"/>">
               <div>
                   <p class="klantVoornaam"><c:out value="${klant.voornaam}" />                  
-                  <p class="klantAchternaam"><c:out value="${klant.achternaam}"/>                  
+                  <p class="klantAchternaam"><c:out value="${klant.achternaam}"/>   
+                      <a href="<c:url value="klanten/${klant.klantID}" />">Ga naar klantscherm</a>            
+                      
               </div>            
           </li>
         </c:forEach>

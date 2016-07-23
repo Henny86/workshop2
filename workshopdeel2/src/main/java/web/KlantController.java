@@ -63,7 +63,7 @@ public class KlantController {
       @PathVariable("klantKlant_Id") long klantId, 
       Model model) {
     model.addAttribute(klantService.findByID(klantId));
-    return "klanten";
+    return "klantscherm";
   }
 
 }
