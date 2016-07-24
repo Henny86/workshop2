@@ -40,5 +40,7 @@
   <definition name="klantscherm" extends="base">
     <put-attribute name="body" value="/WEB-INF/views/klantscherm.jsp" />
   </definition>
-
+  <definition name="bestelling" extends="base">
+    <put-attribute name="body" value="/WEB-INF/views/bestelling.jsp" />
+  </definition>
 </tiles-definitions>
