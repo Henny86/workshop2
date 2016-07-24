@@ -1,6 +1,7 @@
 package POJOs;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -44,7 +45,7 @@ public class Klant implements Serializable {
 	@JoinTable(name="klant_has_adres", 
 		joinColumns={@JoinColumn(name="klant_klant_id")}, 
 		inverseJoinColumns={@JoinColumn(name="adres_type_id")})
-	Map<Adres, AdresType> adressen;
+	Map<Adres, AdresType> adressen = new HashMap();
 
     public long getKlantID() {
         return klant_id;
@@ -109,6 +110,9 @@ public class Klant implements Serializable {
 	public void setFactuurSet(Set<Factuur> factuurSet) {
 		this.factuurSet = factuurSet;
 	}
+        public Map<Adres, AdresType> getAdressen() {
+            return adressen;
+        }
 
 	@Override
     public String toString() {

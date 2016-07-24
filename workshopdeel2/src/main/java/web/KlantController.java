@@ -7,6 +7,7 @@ package web;
 
 import POJOs.Klant;
 import POJOs.Adres;
+import POJOs.AdresType;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import service.AdresService;
+
 import service.KlantService;
 
 /**
@@ -29,6 +30,7 @@ import service.KlantService;
 public class KlantController {
      private KlantService klantService;
      private AdresService adresService;
+   //  private AdresTypeServiceTijdelijk adresService2;
    
 
   @Autowired
@@ -48,8 +50,12 @@ public class KlantController {
             if (errors.hasErrors()) {
             return "klant";
             }
-            klantService.create(klant); 
+            AdresType type = new AdresType();
+            type.setAdres_type(0);            // enkel postadressen nog
+            klant.getAdressen().put(adres, type);
             adresService.create(adres);
+            klantService.create(klant); 
+         
             return "redirect:/klanten/"; //+ klant.getVoornaam()
         }
   
@@ -62,7 +68,10 @@ public class KlantController {
   public String klant(
       @PathVariable("klantKlant_Id") long klantId, 
       Model model) {
-    model.addAttribute(klantService.findByID(klantId));
+      Klant klant = klantService.findByID(klantId);
+      Adres adres = new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
+    model.addAttribute(klant);
+    model.addAttribute(adres);
     return "klantscherm";
   }
 
