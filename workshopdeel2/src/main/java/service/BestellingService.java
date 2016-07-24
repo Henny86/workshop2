@@ -33,7 +33,7 @@ public class BestellingService {
 		bestellingDao.delete(bestelling);
 	}
 
-	public Bestelling findById(long id) {
+	public Bestelling findById(Integer id) {
 		Bestelling bestelling = bestellingDao.findByID(id);
 		return bestelling;
 	}
