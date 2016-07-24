@@ -29,7 +29,7 @@ public class BestellingController {
 	}
 	
 	@RequestMapping(value = "/bestelling", method = RequestMethod.GET)
-	public String listBestelling(Model model, long ID) {
+	public String listBestelling(Model model, Long ID) {
 		model.addAttribute("bestelartikel", new BestelArtikel());
 		model.addAttribute("listArtikel", this.bestellingService.findById(ID).getBestelArtikelSet());
 		return "bestelling";
@@ -37,7 +37,7 @@ public class BestellingController {
         
 	//For add and update person both
 	@RequestMapping(value= "/bestelling/add", method = RequestMethod.POST)
-	public String addArtikel(@ModelAttribute("bestelartikel") BestelArtikel p, long ID){
+	public String addArtikel(@ModelAttribute("bestelartikel") BestelArtikel p, Long ID){
 		
 		if(p.getBestelling_artikel_id() == 0){
 			//new person, add it
@@ -52,7 +52,7 @@ public class BestellingController {
 	}
 	
 	@RequestMapping("/remove/{id}")
-    public String removeArtikel(@PathVariable("id") long id, BestelArtikel bestelArtikel){
+    public String removeArtikel(@PathVariable("id") Long id, BestelArtikel bestelArtikel){
                         BestellingService b = new BestellingService();
                         Bestelling bestelling = b.findById(id);
                         bestelling.getBestelArtikelSet().remove(bestelArtikel);
@@ -61,7 +61,7 @@ public class BestellingController {
     }
  
     @RequestMapping("/edit/{id}")
-    public String editArtikel(@PathVariable("id") int id, Model model, BestelArtikel bestelArtikel){
+    public String editArtikel(@PathVariable("id") Long id, Model model, BestelArtikel bestelArtikel){
 		model.addAttribute("bestelartikel", new BestelArtikel());
 		model.addAttribute("listArtikel", this.bestellingService.findById(id).getBestelArtikelSet());
                         BestellingService b = new BestellingService();
