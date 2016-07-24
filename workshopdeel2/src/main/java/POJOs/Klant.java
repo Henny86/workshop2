@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -37,11 +38,11 @@ public class Klant implements Serializable {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="klant")
 	Set<Account> accountSet;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="klant")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="klant" )
 	Set<Factuur> factuurSet;	
 	
-	@ManyToMany(cascade=CascadeType.PERSIST)
-	@MapKeyJoinColumn(name="adres_adres_id")
+	@ManyToMany(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)// stinkt een beetje...
+       	@MapKeyJoinColumn(name="adres_adres_id")
 	@JoinTable(name="klant_has_adres", 
 		joinColumns={@JoinColumn(name="klant_klant_id")}, 
 		inverseJoinColumns={@JoinColumn(name="adres_type_id")})

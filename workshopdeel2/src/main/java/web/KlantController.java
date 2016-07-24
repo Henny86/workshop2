@@ -69,7 +69,7 @@ public class KlantController {
       @PathVariable("klantKlant_Id") long klantId, 
       Model model) {
       Klant klant = klantService.findByID(klantId);
-      Adres adres = new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
+      Adres adres = (Adres)klant.getAdressen().keySet().toArray()[0];// new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
     model.addAttribute(klant);
     model.addAttribute(adres);
     return "klantscherm";
