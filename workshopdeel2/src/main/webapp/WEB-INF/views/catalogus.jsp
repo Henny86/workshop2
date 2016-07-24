@@ -17,8 +17,8 @@
           <li id="artikel_<c:out value="artikel.artikelID"/>">
       
             <img src="<s:url value="/resources" />/images/artikel/${artikel.artikelNaam}" style="width:304px;height:228px;" border="0"/> 
-            <div class="artikelNaam"><c:out value="${artikel.artikelNaam}  :  ${artikel.artikelBeschrijving}" /></div>
-            <div class="artikelPrijs"><c:out value="Euro ${artikel.artikelPrijs}" /></div>
+            <p class="artikelNaam"><c:out value="${artikel.artikelNaam}  :  ${artikel.artikelBeschrijving}" /></p>
+            <p class="artikelPrijs"><c:out value="Euro ${artikel.artikelPrijs}" /></p>
             <a href="<c:url value="/" />">voeg toe aan winkelmandje</a> 
             
            <sf:form method="POST" commandName="artikel"  action = "catalogus/remover/${artikel.artikelID}" enctype="form-data">  
