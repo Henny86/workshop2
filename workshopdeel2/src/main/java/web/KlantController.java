@@ -9,6 +9,7 @@ import POJOs.Klant;
 import POJOs.Adres;
 import POJOs.AdresType;
 import java.util.List;
+import java.util.Set;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,7 +70,14 @@ public class KlantController {
       @PathVariable("klantKlant_Id") long klantId, 
       Model model) {
       Klant klant = klantService.findByID(klantId);
-      Adres adres = (Adres)klant.getAdressen().keySet().toArray()[0];// new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
+     Set adresSet = klant.getAdressen().keySet();
+     Adres adres;
+      if (adresSet.isEmpty()) {
+          adres = new Adres();
+      }
+      else  {
+          adres = (Adres)adresSet.toArray()[0];
+      }// new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
     model.addAttribute(klant);
     model.addAttribute(adres);
     return "klantscherm";

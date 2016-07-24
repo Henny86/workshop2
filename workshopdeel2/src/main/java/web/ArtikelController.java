@@ -71,7 +71,7 @@ public List<Artikel> artikelen()  {
  
    @RequestMapping(value= "/remover/{artikelArtikelID}", method=RequestMethod.POST)
     public String removeArtikel( @PathVariable("artikelArtikelID") long artikelID)  {
-        System.out.println(" artikel wege" + artikelID );
+        
         artikelService.delete(artikelID);
         return "redirect:/catalogus";
     }
