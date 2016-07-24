@@ -9,12 +9,12 @@
           href="<c:url value="/resources/style.css" />" >
   </head>
   <body>
-    <h1>uit eigen oven</h1>
-
+    <h1>uit eigen oven</h1><br>
+    <h3>ingelogd als ${klant.achternaam}</h3>
     <a id="HomeImage" href="<s:url value="/" />"><img 
     src="<s:url value="/resources" />/images/oven.jpg" width="375" height="269"/></a>
     <br>
-    <a href="<c:url value="/catalogus" />">Koop hier</a> | 
+    <a href="<c:url value="/catalogus/${klant.klantID}" />">Koop hier</a> | 
     <a href="<c:url value="/klanten" />">Registreer</a>
   </body>
 </html>

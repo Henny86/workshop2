@@ -18,6 +18,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import service.AdresService;
 
 import service.KlantService;
@@ -28,6 +29,7 @@ import service.KlantService;
  */
 @Controller
 @RequestMapping("/klanten")
+@SessionAttributes("dezeklant")
 public class KlantController {
      private KlantService klantService;
      private AdresService adresService;
@@ -57,7 +59,7 @@ public class KlantController {
             adresService.create(adres);
             klantService.create(klant); 
          
-            return "redirect:/klanten/"; //+ klant.getVoornaam()
+            return "redirect:/klanten"; //+ klant.getVoornaam()
         }
   
   @RequestMapping(method=RequestMethod.GET)
@@ -78,9 +80,15 @@ public class KlantController {
       else  {
           adres = (Adres)adresSet.toArray()[0];
       }// new Adres();//adresService2.findByKlant_id(klantId);//(Adres)klant.getAdressen().keySet().toArray()[0];
-    model.addAttribute(klant);
+    model.addAttribute("klant", klant);
     model.addAttribute(adres);
     return "klantscherm";
   }
 
+  
+  
+  
+  
+  
+  
 }

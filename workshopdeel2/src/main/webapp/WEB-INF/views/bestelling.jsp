@@ -25,29 +25,29 @@
 
 <c:url var="addAction" value="/person/add" ></c:url>
 
-<form:form action="${addAction}" commandName="person">
+<form:form action="${addAction}" commandName="bestelling">
 <table>
-	<c:if test="${!empty person.name}">
+    <c:if test="${!empty bestelling.bestelling_id}">
 	<tr>
 		<td>
-			<form:label path="id">
+			<form:label path="bestelling_id">
 				<spring:message text="ID"/>
 			</form:label>
 		</td>
 		<td>
-			<form:input path="id" readonly="true" size="8"  disabled="true" />
-			<form:hidden path="id" />
+			<form:input path="bestelling_id" readonly="true" size="8"  disabled="true" />
+			<form:hidden path="bestelling_id" />
 		</td> 
 	</tr>
 	</c:if>
 	<tr>
 		<td>
-			<form:label path="name">
-				<spring:message text="Name"/>
+			<form:label path="bestelNummer">
+				<spring:message text="bestelNummer"/>
 			</form:label>
 		</td>
 		<td>
-			<form:input path="name" />
+			<form:input path="bestelNummer" />
 		</td> 
 	</tr>
 	<tr>
@@ -75,8 +75,8 @@
 </table>	
 </form:form>
 <br>
-<h3>Persons List</h3>
-<c:if test="${!empty listPersons}">
+<h3>Bestelling List</h3>
+<c:if test="${!empty listBestelling}">
 	<table class="tg">
 	<tr>
 		<th width="80">Bestelling ID</th>

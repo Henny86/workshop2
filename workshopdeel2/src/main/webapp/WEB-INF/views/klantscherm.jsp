@@ -16,5 +16,8 @@
     <c:out value="${adres.postcode}" /><br/>
     <c:out value="${adres.woonplaats}" />
     
+    
+    <a href="<c:url value="/${klant.klantID}" />"> login </a>   
+    
   </body>
 </html>

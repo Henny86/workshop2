@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import POJOs.BestelArtikel;
 import service.BestellingService;
 import POJOs.Bestelling;
+import java.util.HashSet;
 
 @Controller
 public class BestellingController {
@@ -30,8 +31,11 @@ public class BestellingController {
 	
 	@RequestMapping(value = "/bestelling", method = RequestMethod.GET)
 	public String listBestelling(Model model, Long ID) {
+            
 		model.addAttribute("bestelartikel", new BestelArtikel());
-		model.addAttribute("listArtikel", this.bestellingService.findById(ID).getBestelArtikelSet());
+		//model.addAttribute("listArtikel", this.bestellingService.findById(ID).getBestelArtikelSet());
+               // model.addAttribute("listArtikel", new HashSet<BestelArtikel>());
+                 model.addAttribute("listArtikel", new Bestelling());
 		return "bestelling";
 	}
         

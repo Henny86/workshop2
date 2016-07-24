@@ -6,6 +6,7 @@
 package web;
 
 import POJOs.Artikel;
+import POJOs.Klant;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,6 +24,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import org.springframework.web.bind.annotation.RequestPart;
 import service.ArtikelService;
+import service.KlantService;
 
 /**
  *
@@ -32,10 +34,11 @@ import service.ArtikelService;
 @RequestMapping("/catalogus")
 public class ArtikelController {
     private ArtikelService artikelService;
-    
+    private KlantService klantService;
 @Autowired
-public ArtikelController(ArtikelService artikelService) {
+public ArtikelController(ArtikelService artikelService, KlantService klantService) {
     this.artikelService = artikelService;
+    this.klantService = klantService;
 }
  
 @RequestMapping(method=RequestMethod.GET)
@@ -43,13 +46,13 @@ public List<Artikel> artikelen()  {
     return artikelService.findAll();
   }
 
-@RequestMapping(value="/register", method=GET)
+@RequestMapping(value="register", method=GET)
   public String showRegistrationForm(Model model) {
     model.addAttribute(new Artikel());  
     return "artikelCatalogus";
   }
   
-  @RequestMapping(value="/register", method=POST)
+  @RequestMapping(value="register", method=POST)
   public String processRegistration( @RequestPart("profilePicture") Part profilePicture,
       @Valid Artikel artikel, 
       Errors errors) {
@@ -76,6 +79,14 @@ public List<Artikel> artikelen()  {
         return "redirect:/catalogus";
     }
   
-  
+  @RequestMapping(value= "/{klantKlant_Id}", method=RequestMethod.GET)
+    public String gaWinkelen( @PathVariable("klantKlant_Id") long klantId, 
+      Model model)  {
+        List<Artikel> artikelen = artikelService.findAll();
+        Klant klant = klantService.findByID(klantId);
+        model.addAttribute(artikelen);
+        model.addAttribute(klant);
+        return "catalogus";
+    }
   
 }
