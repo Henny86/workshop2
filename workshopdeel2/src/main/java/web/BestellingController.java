@@ -32,7 +32,7 @@ public class BestellingController {
 	public String listBestelling(Model model, long ID) {
 		model.addAttribute("bestelartikel", new BestelArtikel());
 		model.addAttribute("listArtikel", this.bestellingService.findById(ID).getBestelArtikelSet());
-		return "bestelartikel";
+		return "bestelling";
 	}
         
 	//For add and update person both
@@ -47,7 +47,7 @@ public class BestellingController {
 			this.bestellingService.update(bestelling);
 		}
 		
-		return "redirect:/listArtikel";
+		return "redirect:/bestelling";
 		
 	}
 	
@@ -57,7 +57,7 @@ public class BestellingController {
                         Bestelling bestelling = b.findById(id);
                         bestelling.getBestelArtikelSet().remove(bestelArtikel);
 			this.bestellingService.update(bestelling);		
-        return "redirect:/listArtikel";
+        return "redirect:/bestelling";
     }
  
     @RequestMapping("/edit/{id}")
@@ -69,7 +69,7 @@ public class BestellingController {
                         bestelling.getBestelArtikelSet().remove(bestelArtikel); //haal bestelArtikel met oude gegevens eerst weg
                         bestelling.getBestelArtikelSet().add(bestelArtikel); // voeg bestelArtikel met geupdate gegevens toe.
 			this.bestellingService.update(bestelling);
-        return "artikel";
+        return "bestelling";
     }
 	
 }
